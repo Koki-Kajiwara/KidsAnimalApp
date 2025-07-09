@@ -52,11 +52,12 @@
 
 ----
 
-## 6. 技術スタック(予定)
+## 6. 技術スタック
 - 言語：C#
 - フレームワーク：.NET  MAUI
-- 音声再生：MediaElement or Plugin
-- アニメーション：SkiaSharp or Lottie
+- 音声再生：Plugin.Maui.Audio
+- アニメーション：標準アニメーションAPI（ViewExtensions）
+               ※製造してみてアニメーションがしっくりこなかったらLottieに切り替える
 
 ----
 

@@ -1,1 +1,13 @@
+# macOS
 .DS_Store
+
+# ビルド成果物
+bin/
+obj/
+*.dll
+*.exe
+*.app
+
+# Visual Studio / VSCode 個人設定
+*.user
+.vscode/

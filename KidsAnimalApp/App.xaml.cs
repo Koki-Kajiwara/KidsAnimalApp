@@ -1,4 +1,6 @@
-﻿namespace KidsAnimalApp;
+﻿using KidsAnimalApp.Views;
+
+namespace KidsAnimalApp;
 
 public partial class App : Application
 {

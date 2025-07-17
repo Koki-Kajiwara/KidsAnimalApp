@@ -1,4 +1,4 @@
-namespace MauiApp1;
+namespace KidsAnimalApp.Views;
 
 public partial class HomePage_View : ContentPage
 {

@@ -20,6 +20,7 @@
                 TextColor="yellow" />
             <!-- TODO: 各種色の微調整 -->
             <Button Text="りくのいきもの"
+                Command="{Binding LandAnimalsCommand}"
                 HorizontalOptions="Center"
                 VerticalOptions="End"
                 FontSize="50"
@@ -31,6 +32,7 @@
                 CornerRadius="10" />
 
             <Button Text="うみのいきもの"
+                Command="{Binding SeaAnimalsCommand}"
                 HorizontalOptions="Center"
                 VerticalOptions="End"
                 FontSize="50"
@@ -42,6 +44,7 @@
                 CornerRadius="10" />
 
             <Button Text="そらのいきもの"
+                Command="{Binding SkyAnimalsCommand}"
                 HorizontalOptions="Center"
                 VerticalOptions="End"
                 FontSize="50"

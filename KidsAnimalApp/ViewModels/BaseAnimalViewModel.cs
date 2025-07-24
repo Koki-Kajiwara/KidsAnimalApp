@@ -8,7 +8,7 @@ using Plugin.Maui.Audio;
 
 namespace KidsAnimalApp.ViewModels;
 
-public class BaseAnimalViewModel : INotifyPropertyChanged
+public abstract class BaseAnimalViewModel : INotifyPropertyChanged
 {
     /// <summary>
     /// 変更通知イベント。
@@ -27,6 +27,9 @@ public class BaseAnimalViewModel : INotifyPropertyChanged
     /// </summary>
     public ObservableCollection<Animal> Animals { get; set; }
 
+    /// <summary>
+    /// 動物の名称。
+    /// </summary>
     private string _selectedAnimalName;
     public string SelectedAnimalName
     {
@@ -39,22 +42,36 @@ public class BaseAnimalViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
+    /// 動物がタップされた時のイベント。
+    /// </summary>
+    public event Action<Animal>? AnimalTapped;
+
+    /// <summary>
+    /// 動物のアイコンパス。
+    /// </summary>
+    private string _selectedAnimalImagePath;
+    public string SelectedAnimalImagePath
+    {
+        get => _selectedAnimalImagePath;
+        set
+        {
+            _selectedAnimalImagePath = value;
+            OnPropertyChanged();
+        }
+    }
+
+    /// <summary>
     /// コンストラクタ。
     /// </summary>
     public BaseAnimalViewModel()
     {
         Animals = new ObservableCollection<Animal>();
-        LoadAnimals();
     }
 
-    /// <summary>
-    /// 動物データをロードします。
-    /// </summary>
-    protected virtual void LoadAnimals()
-    {
-        // ここで動物のデータをロードする処理を実装する
-        // 例: Animals.Add(new Animal { Name = "Lion", ImagePath = "lion.png", SoundPath = "lion.mp3" });
-    }
+    /// <remarks>
+    /// 派生クラスでオーバーライドして、動物データをnewする必要があります。
+    /// </remarks>
+    protected abstract void LoadAnimals();
 
     /// <summary>
     /// 動物アイコンがタップされたときの処理。
@@ -63,17 +80,13 @@ public class BaseAnimalViewModel : INotifyPropertyChanged
     /// このメソッドをオーバーライドして特定の動物のアニメーションを実装してください。
     /// </remarks>
     /// <param name="animal">動物クラス</param>
-    protected virtual async Task OnAnimalTapped(Animal animal)
+    protected virtual void OnAnimalTapped(Animal animal)
     {
         this.SelectedAnimalName = animal.Name;
+        this.SelectedAnimalImagePath = animal.ImagePath;
 
-        // 動物を中央までフェードインさせる。
-        await this.AnimateToCenter(animal.ImagePath);
-
-        // 動物の鳴き声を再生する。(TODO: 音声を再生しながらアニメーションさせる方が良いか？（await不要？）)
-        await this.PlayAnimalSound(animal.SoundPath);
-
-        // 動物アイコンのアニメーションを実装する
+        // ViewコードビハインドにてUI処理。(TODO: 派生クラスでオーバーライドした際にAnimalTapped.Invoke()をしなければいけないか・・・？)
+        this.AnimalTapped?.Invoke(animal);
     }
 
     /// <summary>
@@ -83,25 +96,5 @@ public class BaseAnimalViewModel : INotifyPropertyChanged
     protected virtual async Task GoBackAsync()
     {
         await Shell.Current.GoToAsync("..");
-    }
-
-    /// <summary>
-    /// 動物アイコンを中央にアニメーションさせます。
-    /// </summary>
-    /// <param name="imagePath">動物アイコンファイルパス</param>
-    /// <returns></returns>
-    private async Task AnimateToCenter(string imagePath)
-    {
-        // TODO: 動物アイコンを中央にアニメーションさせる処理を実装する。
-    }
-    /// <summary>
-    /// 動物の鳴き声を再生します。
-    /// </summary>
-    /// <param name="soundPath">音声ファイルパス</param>
-    /// <returns></returns>
-    private async Task PlayAnimalSound(string soundPath)
-    {
-        var player = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync(soundPath));
-        player.Play();
     }
 }

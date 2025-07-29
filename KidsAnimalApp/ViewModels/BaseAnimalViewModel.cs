@@ -28,6 +28,11 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
     public ObservableCollection<Animal> Animals { get; set; }
 
     /// <summary>
+    /// タップされた動物を中央表示する際のViewModel。
+    /// </summary>
+    private SelectedAnimal_ViewModel SelectedAnimalViewModel{ get; set; }
+
+    /// <summary>
     /// 動物の名称。
     /// </summary>
     private string _selectedAnimalName;
@@ -65,7 +70,8 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
     /// </summary>
     public BaseAnimalViewModel()
     {
-        Animals = new ObservableCollection<Animal>();
+        this.SelectedAnimalViewModel = new SelectedAnimal_ViewModel();
+        this.Animals = new ObservableCollection<Animal>();
     }
 
     /// <remarks>
@@ -82,8 +88,8 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
     /// <param name="animal">動物クラス</param>
     protected virtual void OnAnimalTapped(Animal animal)
     {
-        this.SelectedAnimalName = animal.Name;
-        this.SelectedAnimalImagePath = animal.ImagePath;
+        this.SelectedAnimalViewModel.SelectedAnimalName = animal.Name;
+        this.SelectedAnimalViewModel.SelectedAnimalImagePath = animal.ImagePath;
 
         // ViewコードビハインドにてUI処理。(TODO: 派生クラスでオーバーライドした際にAnimalTapped.Invoke()をしなければいけないか・・・？)
         this.AnimalTapped?.Invoke(animal);

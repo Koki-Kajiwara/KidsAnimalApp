@@ -12,4 +12,8 @@
         ContentTemplate="{DataTemplate views:HomePage_View}"
         Route="home" />
 
+    <ShellContent
+        Title="LandAnimalsPage"
+        ContentTemplate="{DataTemplate views:LandAnimalsPage_View}"
+        Route="LandAnimalsPage_View" />
 </Shell>

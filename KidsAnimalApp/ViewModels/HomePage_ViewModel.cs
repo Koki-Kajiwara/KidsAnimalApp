@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using KidsAnimalApp.Views;
 
 namespace KidsAnimalApp.ViewModels;
 
@@ -40,6 +41,7 @@ public class HomePage_ViewModel
     {
         // TODO: りくのいきもの画面に遷移する処理を実装する
         await Shell.Current.DisplayAlert("test message", "りくのいきものボタンがクリックされました", "OK"); // コマンド押下で処理が走るかのテストコード
+        await Shell.Current.GoToAsync(nameof(LandAnimalsPage_View));
     }
 
     /// <summary>

@@ -30,7 +30,7 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
     /// <summary>
     /// タップされた動物を中央表示する際のViewModel。
     /// </summary>
-    private SelectedAnimal_ViewModel SelectedAnimalViewModel{ get; set; }
+    public SelectedAnimal_ViewModel SelectedAnimalViewModel{ get; set; }
 
     /// <summary>
     /// 動物の名称。
@@ -88,6 +88,7 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
     /// <param name="animal">動物クラス</param>
     protected virtual void OnAnimalTapped(Animal animal)
     {
+        // 画面中央に表示させるためにセットする
         this.SelectedAnimalViewModel.SelectedAnimalName = animal.Name;
         this.SelectedAnimalViewModel.SelectedAnimalImagePath = animal.ImagePath;
 

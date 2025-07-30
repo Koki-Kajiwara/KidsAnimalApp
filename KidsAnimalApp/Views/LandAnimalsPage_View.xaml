@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:KidsAnimalApp.Views"
+             xmlns:viewmodels="clr-namespace:KidsAnimalApp.ViewModels"
+             x:Class="KidsAnimalApp.Views.LandAnimalsPage_View"
+             Title="LandAnimalsPage_View">
+
+    <ContentPage.BindingContext>
+        <viewmodels:LandAnimalsPage_ViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <!-- 共通部品：中央に動物を表示 -->
+        <views:CmnParts_AnimalCentralPlacement_View
+            ViewModel="{Binding SelectedAnimalViewModel}" />
+
+        <!-- 各動物のアイコン -->
+        <!-- TODO: アイコンのサイズ、座標は現状は仮設定値 -->
+        <ImageButton
+            Source="{Binding Animals[0].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[0]}" 
+            WidthRequest="100" HeightRequest="100"
+            TranslationX="100" TranslationY="50" />
+
+        <!-- TODO: 他の動物アイコンも同様に配置 -->
+    </Grid>
+</ContentPage>

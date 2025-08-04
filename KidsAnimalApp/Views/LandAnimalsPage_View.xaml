@@ -10,13 +10,21 @@
         <viewmodels:LandAnimalsPage_ViewModel />
     </ContentPage.BindingContext>
 
+    <!-- テストコード -->
     <Grid>
-        <!-- 共通部品：中央に動物を表示 -->
+        <Label Text="陸の生き物"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            FontSize="24"
+            Margin="0,20,0,0" />
+    </Grid>
+    <!-- <Grid>
+        共通部品：中央に動物を表示
         <views:CmnParts_AnimalCentralPlacement_View
             ViewModel="{Binding SelectedAnimalViewModel}" />
 
-        <!-- 各動物のアイコン -->
-        <!-- TODO: アイコンのサイズ、座標は現状は仮設定値 -->
+        各動物のアイコン
+        TODO: アイコンのサイズ、座標は現状は仮設定値
         <ImageButton
             Source="{Binding Animals[0].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -24,6 +32,6 @@
             WidthRequest="100" HeightRequest="100"
             TranslationX="100" TranslationY="50" />
 
-        <!-- TODO: 他の動物アイコンも同様に配置 -->
-    </Grid>
+        TODO: 他の動物アイコンも同様に配置
+    </Grid> -->
 </ContentPage>

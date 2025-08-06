@@ -10,28 +10,107 @@
         <viewmodels:LandAnimalsPage_ViewModel />
     </ContentPage.BindingContext>
 
-    <!-- テストコード -->
-    <Grid>
-        <Label Text="陸の生き物"
-            HorizontalOptions="Center"
-            VerticalOptions="Start"
-            FontSize="24"
-            Margin="0,20,0,0" />
-    </Grid>
-    <!-- <Grid>
-        共通部品：中央に動物を表示
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+        <Image Source="land_bg.png"
+            Aspect="AspectFill"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+        
+        <!-- 共通部品：ヘッダー -->
+        <!-- 共通部品：中央に動物を表示 -->
         <views:CmnParts_AnimalCentralPlacement_View
             ViewModel="{Binding SelectedAnimalViewModel}" />
 
-        各動物のアイコン
-        TODO: アイコンのサイズ、座標は現状は仮設定値
+        <!-- 各動物のアイコン 基準位置は画面中央とする -->
+        <!-- TODO: アイコンのサイズを調整する -->
         <ImageButton
             Source="{Binding Animals[0].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
             CommandParameter="{Binding Animals[0]}" 
             WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
             TranslationX="100" TranslationY="50" />
 
-        TODO: 他の動物アイコンも同様に配置
-    </Grid> -->
+        <ImageButton
+            Source="{Binding Animals[1].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[1]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="-100" TranslationY="210" />
+
+        <ImageButton
+            Source="{Binding Animals[2].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[2]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="230" TranslationY="20" />
+
+        <ImageButton
+            Source="{Binding Animals[3].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[3]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="-340" TranslationY="200" />
+
+        <ImageButton
+            Source="{Binding Animals[4].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[4]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="400" TranslationY="-350" />
+
+        <ImageButton
+            Source="{Binding Animals[5].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[5]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="160" TranslationY="-200" />
+        
+        <ImageButton
+            Source="{Binding Animals[6].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[6]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="-370" TranslationY="-350" />
+        
+        <ImageButton
+            Source="{Binding Animals[7].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[7]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="-300" TranslationY="-50" />
+        
+        <ImageButton
+            Source="{Binding Animals[8].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[8]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="400" TranslationY="300" />
+
+        <ImageButton
+            Source="{Binding Animals[9].ImagePath}"
+            Command="{Binding AnimalTappedCommand}"
+            CommandParameter="{Binding Animals[9]}" 
+            WidthRequest="100" HeightRequest="100"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            TranslationX="-50" TranslationY="-400" />
+    </Grid>
 </ContentPage>

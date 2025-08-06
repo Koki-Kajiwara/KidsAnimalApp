@@ -15,11 +15,6 @@
             Aspect="AspectFill"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand" />
-        
-        <!-- 共通部品：ヘッダー -->
-        <!-- 共通部品：中央に動物を表示 -->
-        <views:CmnParts_AnimalCentralPlacement_View
-            ViewModel="{Binding SelectedAnimalViewModel}" />
 
         <!-- 各動物のアイコン 基準位置は画面中央とする -->
         <!-- TODO: アイコンのサイズを調整する -->
@@ -31,7 +26,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="100" TranslationY="50" />
-
         <ImageButton
             Source="{Binding Animals[1].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -40,7 +34,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="-100" TranslationY="210" />
-
         <ImageButton
             Source="{Binding Animals[2].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -49,7 +42,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="230" TranslationY="20" />
-
         <ImageButton
             Source="{Binding Animals[3].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -58,7 +50,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="-340" TranslationY="200" />
-
         <ImageButton
             Source="{Binding Animals[4].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -67,7 +58,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="400" TranslationY="-350" />
-
         <ImageButton
             Source="{Binding Animals[5].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -76,7 +66,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="160" TranslationY="-200" />
-        
         <ImageButton
             Source="{Binding Animals[6].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -85,7 +74,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="-370" TranslationY="-350" />
-        
         <ImageButton
             Source="{Binding Animals[7].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -94,7 +82,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="-300" TranslationY="-50" />
-        
         <ImageButton
             Source="{Binding Animals[8].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -103,7 +90,6 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="400" TranslationY="300" />
-
         <ImageButton
             Source="{Binding Animals[9].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -112,5 +98,13 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             TranslationX="-50" TranslationY="-400" />
+        
+        <!-- 共通部品：中央に動物を表示 -->
+        <!-- TODO: Bindingが効いてなさそう -->
+        <views:CmnParts_AnimalCentralPlacement_View
+            ViewModel="{Binding SelectedAnimalViewModel}"
+            InputTransparent="{Binding IsInputTransparent}"
+            IsVisible="{Binding IsVisible}"
+            BackgroundColor="#BF000000" />
     </Grid>
 </ContentPage>

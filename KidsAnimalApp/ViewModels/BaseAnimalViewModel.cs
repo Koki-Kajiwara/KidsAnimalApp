@@ -88,12 +88,20 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
     /// <param name="animal">動物クラス</param>
     protected virtual void OnAnimalTapped(Animal animal)
     {
+        // 暗幕と動物アイコンタップ可否の設定
+        this.SelectedAnimalViewModel.IsVisible = true;
+        this.SelectedAnimalViewModel.IsInputTransparent = false;
+
         // 画面中央に表示させるためにセットする
         this.SelectedAnimalViewModel.SelectedAnimalName = animal.Name;
         this.SelectedAnimalViewModel.SelectedAnimalImagePath = animal.ImagePath;
 
         // ViewコードビハインドにてUI処理。(TODO: 派生クラスでオーバーライドした際にAnimalTapped.Invoke()をしなければいけないか・・・？)
         this.AnimalTapped?.Invoke(animal);
+
+        // 暗幕と動物アイコンタップ可否の設定
+        this.SelectedAnimalViewModel.IsVisible = false;
+        this.SelectedAnimalViewModel.IsInputTransparent = true;
     }
 
     /// <summary>

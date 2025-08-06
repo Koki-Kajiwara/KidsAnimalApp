@@ -47,4 +47,39 @@ public class SelectedAnimal_ViewModel : INotifyPropertyChanged
             OnPropertyChanged();
         }
     }
+
+    /// <summary>
+    /// 暗幕の表示状態管理。
+    /// </summary>
+    private bool _isVisible;
+    public bool IsVisible
+    {
+        get => _isVisible;
+        set
+        {
+            _isVisible = value;
+            OnPropertyChanged();
+        }
+    }
+
+    /// <summary>
+    /// 入力を透過するかどうかのフラグ。
+    /// </summary>
+    private bool _isInputTransparent;
+    public bool IsInputTransparent
+    {
+        get => _isInputTransparent;
+        set
+        {
+            _isInputTransparent = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public SelectedAnimal_ViewModel()
+    {
+        // 初期状態では非表示
+        this.IsVisible = false;
+        this.IsInputTransparent = true;
+    }
 }

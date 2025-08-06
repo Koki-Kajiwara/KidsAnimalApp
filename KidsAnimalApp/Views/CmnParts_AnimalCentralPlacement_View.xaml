@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KidsAnimalApp.Views.CmnParts_AnimalCentralPlacement_View">
     <!-- TODO: 背景を透明度のあるBlackにしたい -->
-    <Grid>
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <!-- TODO: アイコンサイズの調整 -->
-        <Image Source="{Binding AnimalImagePath}" 
-               WidthRequest="150"
-               HeightRequest="150"
+        <Image Source="{Binding ImagePath}" 
+               WidthRequest="200"
+               HeightRequest="200"
                HorizontalOptions="Center"
                VerticalOptions="Center" />
         <!-- TODO: 文字サイズ、フォントの調整 -->
-        <Label Text="{Binding AnimalName}" 
+        <Label Text="{Binding Name}" 
                HorizontalOptions="Center"
                VerticalOptions="End"
                FontSize="24"

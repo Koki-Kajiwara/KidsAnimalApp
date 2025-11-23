@@ -25,7 +25,13 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="100" TranslationY="50" />
+            TranslationX="100" TranslationY="50" >
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+
         <ImageButton
             Source="{Binding Animals[1].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -33,7 +39,13 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="-100" TranslationY="210" />
+            TranslationX="-100" TranslationY="210">
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+
         <ImageButton
             Source="{Binding Animals[2].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -41,7 +53,13 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="230" TranslationY="20" />
+            TranslationX="230" TranslationY="20" >
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+
         <ImageButton
             Source="{Binding Animals[3].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -49,7 +67,13 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="-340" TranslationY="200" />
+            TranslationX="-340" TranslationY="200">
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+
         <ImageButton
             Source="{Binding Animals[4].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -57,7 +81,13 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="400" TranslationY="-350" />
+            TranslationX="400" TranslationY="-350">
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+        
         <ImageButton
             Source="{Binding Animals[5].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -65,7 +95,13 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="160" TranslationY="-200" />
+            TranslationX="160" TranslationY="-200">
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+
         <ImageButton
             Source="{Binding Animals[6].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -73,7 +109,14 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="-370" TranslationY="-350" />
+            TranslationX="-370" TranslationY="-350">
+
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+        
         <ImageButton
             Source="{Binding Animals[7].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -81,7 +124,13 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="-300" TranslationY="-50" />
+            TranslationX="-300" TranslationY="-50">
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+
         <ImageButton
             Source="{Binding Animals[8].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -89,7 +138,13 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="400" TranslationY="300" />
+            TranslationX="400" TranslationY="300">
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
+        
         <ImageButton
             Source="{Binding Animals[9].ImagePath}"
             Command="{Binding AnimalTappedCommand}"
@@ -97,14 +152,18 @@
             WidthRequest="100" HeightRequest="100"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            TranslationX="-50" TranslationY="-400" />
+            TranslationX="-50" TranslationY="-400">
+
+            <!-- <ImageButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAnimalTapped" />
+            </ImageButton.GestureRecognizers> -->
+        </ImageButton>
         
         <!-- 共通部品：中央に動物を表示 -->
-        <!-- TODO: Bindingが効いてなさそう -->
         <views:CmnParts_AnimalCentralPlacement_View
-            ViewModel="{Binding SelectedAnimalViewModel}"
+            BindingContext="{Binding SelectedAnimalViewModel}"
             InputTransparent="{Binding IsInputTransparent}"
-            IsVisible="{Binding IsVisible}"
+            Opacity="{Binding Opacity}"
             BackgroundColor="#BF000000" />
     </Grid>
 </ContentPage>

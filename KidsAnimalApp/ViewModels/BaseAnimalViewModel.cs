@@ -89,7 +89,7 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
     protected virtual void OnAnimalTapped(Animal animal)
     {
         // 暗幕と動物アイコンタップ可否の設定
-        this.SelectedAnimalViewModel.IsVisible = true;
+        this.SelectedAnimalViewModel.Opacity = 1.0;
         this.SelectedAnimalViewModel.IsInputTransparent = false;
 
         // 画面中央に表示させるためにセットする
@@ -100,8 +100,8 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
         this.AnimalTapped?.Invoke(animal);
 
         // 暗幕と動物アイコンタップ可否の設定
-        this.SelectedAnimalViewModel.IsVisible = false;
-        this.SelectedAnimalViewModel.IsInputTransparent = true;
+        // this.SelectedAnimalViewModel.Opacity = 0.0;
+        // this.SelectedAnimalViewModel.IsInputTransparent = true;
     }
 
     /// <summary>

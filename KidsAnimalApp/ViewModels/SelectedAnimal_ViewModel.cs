@@ -63,6 +63,20 @@ public class SelectedAnimal_ViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
+    /// 暗幕の表示状態管理。
+    /// </summary>
+    private double _opacity;
+    public double Opacity
+    {
+        get => _opacity;
+        set
+        {
+            _opacity = value;
+            OnPropertyChanged();
+        }
+    }
+
+    /// <summary>
     /// 入力を透過するかどうかのフラグ。
     /// </summary>
     private bool _isInputTransparent;
@@ -76,10 +90,14 @@ public class SelectedAnimal_ViewModel : INotifyPropertyChanged
         }
     }
 
+    /// <summary>
+    /// コンストラクタ。
+    /// </summary>
     public SelectedAnimal_ViewModel()
     {
         // 初期状態では非表示
-        this.IsVisible = false;
+        //this.IsVisible = false;
         this.IsInputTransparent = true;
+        this.Opacity = 0.0;
     }
 }

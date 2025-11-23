@@ -34,7 +34,6 @@ public class LandAnimalsPage_ViewModel : BaseAnimalViewModel
                 base.OnAnimalTapped(tappedAnimal);
             }
         });
-
         // 戻るボタン押下時の処理。
         this.BackCommand = new Command(async () => await base.GoBackAsync());
     }

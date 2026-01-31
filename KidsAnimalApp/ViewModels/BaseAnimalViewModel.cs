@@ -86,7 +86,7 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
     /// このメソッドをオーバーライドして特定の動物のアニメーションを実装してください。
     /// </remarks>
     /// <param name="animal">動物クラス</param>
-    protected virtual void OnAnimalTapped(Animal animal)
+    protected virtual async Task OnAnimalTapped(Animal animal)
     {
         // 暗幕と動物アイコンタップ可否の設定
         this.SelectedAnimalViewModel.Opacity = 1.0;
@@ -95,6 +95,9 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
         // 画面中央に表示させるためにセットする
         this.SelectedAnimalViewModel.SelectedAnimalName = animal.Name;
         this.SelectedAnimalViewModel.SelectedAnimalImagePath = animal.ImagePath;
+
+        // View側にタップされたことを合図する
+        this.SelectedAnimalViewModel.IsShown = true;
 
         // ViewコードビハインドにてUI処理。(TODO: 派生クラスでオーバーライドした際にAnimalTapped.Invoke()をしなければいけないか・・・？)
         this.AnimalTapped?.Invoke(animal);

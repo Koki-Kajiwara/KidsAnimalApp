@@ -91,13 +91,28 @@ public class SelectedAnimal_ViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
+    /// 動物タップの管理。
+    /// </summary>
+    private bool _isShown;
+    public bool IsShown
+    {
+        get => _isShown;
+        set
+        {
+            _isShown = value;
+            OnPropertyChanged();
+        }
+    }
+
+    /// <summary>
     /// コンストラクタ。
     /// </summary>
     public SelectedAnimal_ViewModel()
     {
         // 初期状態では非表示
-        //this.IsVisible = false;
         this.IsInputTransparent = true;
         this.Opacity = 0.0;
     }
+
+
 }

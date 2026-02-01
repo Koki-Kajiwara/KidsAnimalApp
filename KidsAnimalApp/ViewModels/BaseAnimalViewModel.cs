@@ -95,13 +95,10 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
         // 画面中央に表示させるためにセットする
         this.SelectedAnimalViewModel.SelectedAnimalName = animal.Name;
         this.SelectedAnimalViewModel.SelectedAnimalImagePath = animal.ImagePath;
+        this.SelectedAnimalViewModel.SelectedAnimalSoundPath = animal.SoundPath;
 
         // View側にタップされたことを合図する
         this.SelectedAnimalViewModel.IsShown = true;
-        
-        // 暗幕と動物アイコンタップ可否の設定
-        // this.SelectedAnimalViewModel.Opacity = 0.0;
-        // this.SelectedAnimalViewModel.IsInputTransparent = true;
     }
 
     /// <summary>

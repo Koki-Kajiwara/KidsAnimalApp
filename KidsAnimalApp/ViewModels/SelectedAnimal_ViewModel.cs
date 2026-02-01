@@ -49,6 +49,20 @@ public class SelectedAnimal_ViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
+    /// 選択された動物の音声パス。
+    /// </summary>
+    private string _selectedAnimalSoundPath;
+    public string SelectedAnimalSoundPath
+    {
+        get => _selectedAnimalSoundPath;
+        set
+        {
+            SelectedAnimalSoundPath = value;
+            OnPropertyChanged();
+        }
+    }
+
+    /// <summary>
     /// 暗幕の表示状態管理。
     /// </summary>
     private bool _isVisible;

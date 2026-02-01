@@ -53,7 +53,8 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 					// フェードイン。
 					await this.ShowAsync();
 
-					// TODO 音声再生
+					// 音声再生。
+					this.PlayAnimalSound(vm);
 					// TODO アニメーション
 
 					// フェードアウト。
@@ -107,8 +108,9 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 	/// <summary>
 	/// 動物の音声を再生する。
 	/// </summary>
-	private void PlayAnimalSound()
+	private void PlayAnimalSound(SelectedAnimal_ViewModel vm)
 	{
 		// TODO: 動物の音声を再生する処理を実装
+		
 	}
 }

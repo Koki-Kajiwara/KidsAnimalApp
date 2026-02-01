@@ -47,14 +47,15 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 		{
 			vm.PropertyChanged += async (s, e) =>
 			{
-				// 動物タップを認知。
+				// 動物タップを認知して一連の処理を動かす。
 				if (e.PropertyName == nameof(vm.IsShown) && vm.IsShown)
 				{
 					// フェードイン。
 					await this.ShowAsync();
-				}
-				else
-				{
+
+					// TODO 音声再生
+					// TODO アニメーション
+
 					// フェードアウト。
 					await this.HideAsync();
 				}
@@ -78,7 +79,7 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 	/// 動物タップ時の表示アニメーション。
 	/// </summary>
 	/// <returns></returns>
-	public async Task ShowAsync()
+	private async Task ShowAsync()
 	{
 		// 表示前に一旦初期化（重要）
 		this.Opacity = 0;
@@ -86,20 +87,28 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 
 		// 中央からサイズを大きくしながらフェードイン
 		await Task.WhenAll(
-			this.FadeTo(1, 350, Easing.CubicOut),
-			this.ScaleTo(1.0, 350, Easing.CubicOut)
+			this.FadeTo(1, 1500, Easing.CubicOut),
+			this.ScaleTo(1.0, 1500, Easing.CubicOut)
 		);
 	}
-	
+
 	/// <summary>
 	/// 一通りの処理が終わった後の非表示アニメーション
 	/// </summary>
 	/// <returns></returns>
-	public async Task HideAsync()
+	private async Task HideAsync()
 	{
 		await Task.WhenAll(
 			this.FadeTo(0, 250, Easing.CubicIn),
 			this.ScaleTo(0.6, 250, Easing.CubicIn)
 		);
+	}
+
+	/// <summary>
+	/// 動物の音声を再生する。
+	/// </summary>
+	private void PlayAnimalSound()
+	{
+		// TODO: 動物の音声を再生する処理を実装
 	}
 }

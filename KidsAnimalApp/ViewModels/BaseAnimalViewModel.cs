@@ -98,10 +98,7 @@ public abstract class BaseAnimalViewModel : INotifyPropertyChanged
 
         // View側にタップされたことを合図する
         this.SelectedAnimalViewModel.IsShown = true;
-
-        // ViewコードビハインドにてUI処理。(TODO: 派生クラスでオーバーライドした際にAnimalTapped.Invoke()をしなければいけないか・・・？)
-        this.AnimalTapped?.Invoke(animal);
-
+        
         // 暗幕と動物アイコンタップ可否の設定
         // this.SelectedAnimalViewModel.Opacity = 0.0;
         // this.SelectedAnimalViewModel.IsInputTransparent = true;

@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AVFoundation;
 using KidsAnimalApp.Models;
-using Plugin.Maui.Audio;
 
 namespace KidsAnimalApp.ViewModels;
 

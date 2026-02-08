@@ -25,6 +25,11 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 	}
 
 	/// <summary>
+	/// 初回ロード済みフラグ。
+	/// </summary>
+	private bool _isLoaded = false;
+
+	/// <summary>
 	/// コンストラクタ。
 	/// </summary>
 	public CmnParts_AnimalCentralPlacement_View()
@@ -34,6 +39,9 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 		// 初期状態は非表示、縮小にする
 		this.Opacity = 0;
 		this.Scale = 0.6;
+
+		//画面準備完了。
+		Loaded += (_, _) => this._isLoaded = true;
 	}
 
 	/// <summary>
@@ -50,6 +58,12 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 				// 動物タップを認知して一連の処理を動かす。
 				if (e.PropertyName == nameof(vm.IsShown) && vm.IsShown)
 				{
+					if (!this._isLoaded)
+					{
+						// 画面準備が完了していない場合は処理しない。
+						return;
+					}
+
 					// フェードイン。
 					await this.ShowAsync();
 
@@ -58,7 +72,7 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 					// TODO アニメーション
 
 					// フェードアウト。
-					await this.HideAsync();
+					// await this.HideAsync();
 				}
 			};
 		}
@@ -86,11 +100,15 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 		this.Opacity = 0;
 		this.Scale = 0.6;
 
-		// 中央からサイズを大きくしながらフェードイン
-		await Task.WhenAll(
-			this.FadeTo(1, 1500, Easing.CubicOut),
-			this.ScaleTo(1.0, 1500, Easing.CubicOut)
-		);
+		Dispatcher.Dispatch(async () =>
+		{
+			// 中央からサイズを大きくしながらフェードイン
+			await Task.WhenAll(
+				this.FadeTo(1, 1500, Easing.CubicOut),
+				this.ScaleTo(1.0, 1500, Easing.CubicOut)
+			);
+		});
+
 	}
 
 	/// <summary>
@@ -111,6 +129,8 @@ public partial class CmnParts_AnimalCentralPlacement_View : ContentView
 	private void PlayAnimalSound(SelectedAnimal_ViewModel vm)
 	{
 		// TODO: 動物の音声を再生する処理を実装
-		
+		var audioService = Plugin.Maui.Audio.AudioManager.Current;
+		using var player = audioService.CreatePlayer(vm.SelectedAnimalSoundPath);
+		player.Play();
 	}
 }
